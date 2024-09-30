@@ -1,0 +1,19 @@
+name: PageSpeed Check
+
+on:
+  push:
+    branches:
+      - Hesham  
+  pull_request:
+    branches:
+      - Hesham  
+
+jobs:
+  pagespeed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run PageSpeed Check
+        run: yarn pagespeed
